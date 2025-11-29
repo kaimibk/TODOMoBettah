@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "todo-mo-bettah"
+version = "0.1.0"
+description = "A better TODO application with Streamlit"
+
+dependencies = [
+    "streamlit==1.51",
+    "plotly==6.5",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pre-commit==4.5",
+]
