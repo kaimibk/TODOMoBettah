@@ -20,9 +20,7 @@ with preamble_col1:
 
 with preamble_col2:
     st.write("Ideally, you want to focus on tasks that are **high urgency**, **high impact**, and **low effort**.")
-    st.latex(r"""
-        \text{Priority} = \frac{\text{Urgency} + \text{Impact} + (10 - \text{Effort})}{3}
-    """)
+    st.latex(r"\text{Priority} = \frac{\text{Urgency} + \text{Impact} + (10 - \text{Effort})}{3}")
     st.write("""
     This scales the result to a 0-10 range where:
     * **10 (Max Priority)** = 10 Urgency + 10 Impact + 0 Effort
@@ -300,22 +298,22 @@ if not plot_df.empty:
     # Coordinates are center points of quadrants: 2.5 (Low) and 7.5 (High)
     QUADRANT_LABELS = {
         "Urgency vs Impact": {
-            (7.5, 7.5): "Do First",    # High Urg, High Imp
-            (2.5, 7.5): "Schedule",    # Low Urg, High Imp
-            (7.5, 2.5): "Delegate",    # High Urg, Low Imp
-            (2.5, 2.5): "Delete"       # Low Urg, Low Imp
+            (10, 10): "Do First",    # High Urg, High Imp
+            (0.5, 10): "Schedule",    # Low Urg, High Imp
+            (10, 0.5): "Delegate",    # High Urg, Low Imp
+            (0.5, 0.5): "Delete"       # Low Urg, Low Imp
         },
         "Impact vs Effort": {
-            (7.5, 2.5): "Quick Wins",      # High Imp, Low Eff (Visually Top Right)
-            (7.5, 7.5): "Major Projects",  # High Imp, High Eff (Visually Bottom Right)
-            (2.5, 2.5): "Fill-ins",        # Low Imp, Low Eff (Visually Top Left)
-            (2.5, 7.5): "Time Wasters"     # Low Imp, High Eff (Visually Bottom Left)
+            (10, 0.5): "Quick Wins",      # High Imp, Low Eff (Visually Top Right)
+            (10, 10): "Major Projects",  # High Imp, High Eff (Visually Bottom Right)
+            (0.5, 0.5): "Fill-ins",        # Low Imp, Low Eff (Visually Top Left)
+            (0.75, 10): "Time Wasters"     # Low Imp, High Eff (Visually Bottom Left)
         },
         "Urgency vs Effort": {
-            (7.5, 2.5): "Quick Fixes",     # High Urg, Low Eff
-            (7.5, 7.5): "Critical Slog",   # High Urg, High Eff
-            (2.5, 2.5): "Maybe Later",     # Low Urg, Low Eff
-            (2.5, 7.5): "Avoid"            # Low Urg, High Eff
+            (10, 0.5): "Quick Fixes",     # High Urg, Low Eff
+            (10, 10): "Critical Slog",   # High Urg, High Eff
+            (0.5, 0.5): "Maybe Later",     # Low Urg, Low Eff
+            (0.5, 10): "Avoid"            # Low Urg, High Eff
         }
     }
 
