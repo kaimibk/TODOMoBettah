@@ -6,7 +6,7 @@ import numpy as np
 # --- Page Configuration ---
 st.set_page_config(layout="wide", page_title="3D Prioritization Matrix")
 
-st.title("✅ 3D Task Prioritizer")
+st.html("<h1><sub><sup>TODO</sup></sub> Mo' Bettah &mdash; 3D Task Prioritizer</h1>")
 
 preamble_col1, preamble_col2 = st.columns(2)
 

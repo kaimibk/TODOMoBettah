@@ -9,10 +9,10 @@ COPY pyproject.toml pyproject.toml
 
 RUN pip3 install -e .
 
-COPY . /app/
+COPY ./src /app/src
 
 HEALTHCHECK CMD curl --fail http://localhost:8501/_stcore/health
-ENTRYPOINT [ "streamlit", "run", "/app/main.py", "--server.port=8501", "--server.address=0.0.0.0" ]
+ENTRYPOINT [ "streamlit", "run", "/app/src/main.py", "--server.port=8501", "--server.address=0.0.0.0" ]
 
 FROM base as dev
 
