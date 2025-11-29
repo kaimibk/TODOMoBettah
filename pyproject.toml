@@ -6,6 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "todo-mo-bettah"
 version = "0.1.0"
 description = "A better TODO application with Streamlit"
+requires-python = ">=3.13"
 
 dependencies = [
     "streamlit==1.51",
