@@ -85,6 +85,7 @@ with st.sidebar:
 st.subheader("Task List")
 
 st.write("Add, edit, or delete tasks below. **Click the button below to update the analysis.**")
+st.warning("Warning: data changes do not persist. You will lose them if you refresh or close the app.", icon="⚠️")
 
 column_config = {
     "Task": st.column_config.TextColumn("Task Name", required=True),
