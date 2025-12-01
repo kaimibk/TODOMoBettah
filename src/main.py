@@ -89,9 +89,9 @@ st.warning("Warning: data changes do not persist. You will lose them if you refr
 
 column_config = {
     "Task": st.column_config.TextColumn("Task Name", required=True),
-    "Urgency (0-10)": st.column_config.NumberColumn("Urgency", min_value=0, max_value=10, format="%d ⭐"),
-    "Impact (0-10)": st.column_config.NumberColumn("Impact", min_value=0, max_value=10, format="%d 💥"),
-    "Effort (0-10)": st.column_config.NumberColumn("Effort", min_value=0, max_value=10, format="%d 💪"),
+    "Urgency (0-10)": st.column_config.NumberColumn("Urgency", default=0, min_value=0, max_value=10, format="%d ⭐"),
+    "Impact (0-10)": st.column_config.NumberColumn("Impact", default=0, min_value=0, max_value=10, format="%d 💥"),
+    "Effort (0-10)": st.column_config.NumberColumn("Effort", default=10, min_value=0, max_value=10, format="%d 💪"),
     "Status": st.column_config.CheckboxColumn("Done?", default=False),
     "Priority": st.column_config.ProgressColumn(
         "Priority Score",
@@ -99,6 +99,7 @@ column_config = {
         format="%.1f",
         min_value=0,
         max_value=10,
+        default=0
     ),
     "id": None # Hide ID column
 }
@@ -273,7 +274,8 @@ if not plot_df.empty:
         uirevision='constant',
     )
 
-    sel_3d = st.plotly_chart(fig_3d, use_container_width=False, on_select="rerun", key="chart_3d")
+    with st.container(border=True, horizontal_alignment="center", width="content", gap="medium"):
+        sel_3d = st.plotly_chart(fig_3d, use_container_width=True, on_select="rerun", key="chart_3d")
 
     # --- 2D Charts ---
     st.divider()
