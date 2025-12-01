@@ -92,7 +92,7 @@ column_config = {
     "Urgency (0-10)": st.column_config.NumberColumn("Urgency", min_value=0, max_value=10, format="%d ⭐"),
     "Impact (0-10)": st.column_config.NumberColumn("Impact", min_value=0, max_value=10, format="%d 💥"),
     "Effort (0-10)": st.column_config.NumberColumn("Effort", min_value=0, max_value=10, format="%d 💪"),
-    "Status": st.column_config.CheckboxColumn("Done?"),
+    "Status": st.column_config.CheckboxColumn("Done?", default=False),
     "Priority": st.column_config.ProgressColumn(
         "Priority Score",
         help="High Impact + High Urgency + Low Effort",
@@ -273,7 +273,7 @@ if not plot_df.empty:
         uirevision='constant',
     )
 
-    sel_3d = st.plotly_chart(fig_3d, use_container_width=True, on_select="rerun", key="chart_3d")
+    sel_3d = st.plotly_chart(fig_3d, use_container_width=False, on_select="rerun", key="chart_3d")
 
     # --- 2D Charts ---
     st.divider()
