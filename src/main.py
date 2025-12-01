@@ -108,7 +108,7 @@ edited_df = st.data_editor(
     st.session_state.tasks_df,
     column_config=column_config,
     num_rows="dynamic",
-    use_container_width=True,
+    width="stretch",
     key="editor",
     hide_index=True,
     disabled=["Priority"]
@@ -273,8 +273,8 @@ if not plot_df.empty:
         uirevision='constant',
     )
 
-    with st.container(border=True, horizontal_alignment="center", width="content", gap="medium"):
-        sel_3d = st.plotly_chart(fig_3d, use_container_width=True, on_select="rerun", key="chart_3d")
+    with st.container(border=True, horizontal_alignment="center", gap="medium"):
+        sel_3d = st.plotly_chart(fig_3d, width="stretch", on_select="rerun", key="chart_3d")
 
     # --- 2D Charts ---
     st.divider()
@@ -362,15 +362,15 @@ if not plot_df.empty:
     # Render 2D charts and capture selection
     with col_a:
         fig1 = create_2d_fig('Urgency (0-10)', 'Impact (0-10)', "Urgency vs Impact", "Urgency", "Impact")
-        sel_1 = st.plotly_chart(fig1, use_container_width=True, on_select="rerun", key="chart_2d_1")
+        sel_1 = st.plotly_chart(fig1, width="stretch", on_select="rerun", key="chart_2d_1")
 
     with col_b:
         fig2 = create_2d_fig('Impact (0-10)', 'Effort (0-10)', "Impact vs Effort", "Impact", "Effort")
-        sel_2 = st.plotly_chart(fig2, use_container_width=True, on_select="rerun", key="chart_2d_2")
+        sel_2 = st.plotly_chart(fig2, width="stretch", on_select="rerun", key="chart_2d_2")
 
     with col_c:
         fig3 = create_2d_fig('Urgency (0-10)', 'Effort (0-10)', "Urgency vs Effort", "Urgency", "Effort")
-        sel_3 = st.plotly_chart(fig3, use_container_width=True, on_select="rerun", key="chart_2d_3")
+        sel_3 = st.plotly_chart(fig3, width="stretch", on_select="rerun", key="chart_2d_3")
 
     # --- Selection Logic Processor ---
     # Combine selections
