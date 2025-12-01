@@ -98,8 +98,7 @@ column_config = {
         help="High Impact + High Urgency + Low Effort",
         format="%.1f",
         min_value=0,
-        max_value=10,
-        default=0
+        max_value=10
     ),
     "id": None # Hide ID column
 }
